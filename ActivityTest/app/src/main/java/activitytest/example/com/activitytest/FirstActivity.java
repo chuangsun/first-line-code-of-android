@@ -20,11 +20,9 @@ public class FirstActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                // Activity 类提供startActivity方法，传入intent 来启动activity
-                Intent intent = new Intent("com.example.activitytest.ACTION_START");
-                intent.addCategory("com.example.activitytest.MY_CATEGORY");
-                //在调用startActivity()时，自动给activity添加android.intent.category.DEFAULT这个默认的category
-                //对于现在的 intent来说，它具有default和com.example.activitytest.MY_CATEGORY 两个category
+                String data = "Hello SecondActivity";
+                Intent intent = new Intent(FirstActivity.this, SecondActivity.class);
+                intent.putExtra("extra_data", data);
                 startActivity(intent);
             }
         });
