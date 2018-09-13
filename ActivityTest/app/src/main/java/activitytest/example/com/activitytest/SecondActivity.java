@@ -18,16 +18,17 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String data = intent.getStringExtra("extra_data");
         Log.d("SecondActivity", data);
-        Button button = (Button) findViewById(R.id.button_2);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button button2 = (Button) findViewById(R.id.button_2);
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent.ACTION_VIEW 是一个系统内置的动作，其常量值为"android.intent.action.VIEW"
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                //Uri.parse()将一个网页字符串解析成一个Uri对象，再调用Intent的setData()方法，将这个Uri对象传递进去
-                //setData接受一个Uri对象，用于指定当前的Intent正在操作的数据，而这些数据通常都是以字符串的形式传递到Uri.parse()方法中解析产生的
-                intent.setData(Uri.parse("http://www.baidu.com"));
-                startActivity(intent);
+                Intent intent = new Intent();
+                //intent没有任何跳转意图,只用来把数据存放在intent中
+                intent.putExtra("data_return", "Hello,FirstActivity");
+                //把intent传递回去
+                setResult(RESULT_OK, intent);
+                finish();
+                //在activity被销毁后会回调上一个活动的onActivityResult()方法，需要在上一个activity中重写onActivityResult
             }
         });
     }
