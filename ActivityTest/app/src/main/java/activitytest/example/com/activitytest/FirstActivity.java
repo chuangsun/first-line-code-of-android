@@ -11,30 +11,6 @@ import android.widget.Toast;
 public class FirstActivity extends AppCompatActivity {
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        //调用getMenuInflater()方法得到MenuInflater对象，再调用inflate()方法就可以给当前活动创建菜单了
-        //inflate传入两个方法，第一个参数：使用哪个参数创建菜单， 第二个参数：我们的菜单项将添加到那个Menu对象当中中，这里是用onCreateOptionsMenu()方法传入的menu
-        getMenuInflater().inflate(R.menu.main, menu);
-        //return true,表示允许创建的菜单显示出来
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        //调用item.getItemId()来获取我们点击的是哪一个菜单项
-        switch (item.getItemId()){
-            case R.id.add_item:
-                Toast.makeText(this,"you click add", Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.remove_item:
-                Toast.makeText(this,"you click remove", Toast.LENGTH_SHORT).show();
-                break;
-            default:
-        }
-        return true;
-    }
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.first_layout);
@@ -43,9 +19,8 @@ public class FirstActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v){
-                Toast.makeText(FirstActivity.this, "You clicked Button 1", Toast.LENGTH_SHORT).show();
+                finish();
             }
-
         });
     }
 }
