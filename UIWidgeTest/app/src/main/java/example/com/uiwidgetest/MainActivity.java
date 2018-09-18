@@ -29,28 +29,37 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+//                switch (v.getId()) {
+//                    case R.id.button :
+//                        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+//                        dialog.setTitle("This is Dialog");
+//                        dialog.setMessage("Something important.");
+//                        dialog.setCancelable(true);
+//                        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//
+//                            }
+//                        });
+//                        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//                            }
+//                        });
+//                        dialog.show();
+//                        break;
+//                        default:
+//                            break;
+//
+//                }
                 switch (v.getId()) {
-                    case R.id.button :
-                        AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
-                        dialog.setTitle("This is Dialog");
-                        dialog.setMessage("Something important.");
-                        dialog.setCancelable(true);
-                        dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                            }
-                        });
-                        dialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                            }
-                        });
-                        dialog.show();
+                    case R.id.button:
+                        int progress = progressBar.getProgress();
+                        progress = progress + 10;
+                        progressBar.setProgress(progress);
                         break;
                         default:
                             break;
-
                 }
             }
         });
